@@ -44,3 +44,8 @@ This web application visualizes road damage reports (e.g., potholes, cracks, gar
 - Ensure your IP is whitelisted in MongoDB Atlas.
 
 - For cloud hosting, run Flask with host='0.0.0.0' and use a public static IP.
+
+## 🎥 helpfull youtube videos
+
+[flask](https://youtu.be/Ze_lPWFQmXI?si=46FioDt0Q-AQt8i1)
+[flask](https://youtu.be/07qgoQngK2Q?si=TSSNi-Frq_0fFoNR)
