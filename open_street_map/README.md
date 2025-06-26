@@ -39,7 +39,7 @@ This web application visualizes road damage reports (e.g., potholes, cracks, gar
 - Testing Client: Python requests library
 
 ## 🌐 Deployment Notes
-- The Flask app runs on port 5000 and is accessible via http://<your-ip>:5000/.
+- The Flask app runs on port 5000 and is accessible via http://your_ip:5000/.
 
 - Ensure your IP is whitelisted in MongoDB Atlas.
 
