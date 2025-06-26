@@ -1,4 +1,4 @@
-# 📡 V2V Transmission - UART to ESP32 (C++)
+# 📡 V2V Transmission - RASPI to ESP32 via UART(C++)
 This application is responsible for sending road damage alerts from the Raspberry Pi to an ESP32 module over UART as part of the V2V (Vehicle-to-Vehicle) communication system.
 
 ## 🔧 Features:
