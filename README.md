@@ -31,7 +31,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 - Low latency for alerts.
 
 ### 2. 🧠 System Design
-#### 🏗️ Architecture:
+####   🏗️ Architecture:
 
 #### Modular design with subsystems:
 
@@ -43,7 +43,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 
 - OpenStreetMap (flask + MongoDB).
 
-#### 🛠️ Technology Stack:
+####   🛠️ Technology Stack:
 
 - Raspberry Pi (Python/C++).
 
@@ -55,7 +55,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 
 - Flask + Leaflet.js for the map UI.
 
-#### 🔄 Data Flow:
+####   🔄 Data Flow:
 
 - The camera detects damage → YOLO confirms → GPS adds the location.
 
@@ -70,7 +70,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 - Map updated via Flask API.
 
 ### 3. 💻 Implementation
-#### 💬 Programming Languages:
+####   💬 Programming Languages:
 
 - C++ (main app + MQTT + raspberrypi to esp32 ).
 
@@ -78,7 +78,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 
 - JavaScript (Leaflet.js map).
 
-#### 🔗 Software Integration:
+####   🔗 Software Integration:
 
 - When the Raspberry Pi detects road damage using camera and YOLOv12,it sends alert to:
 
@@ -88,7 +88,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 
   3-mongodb atlas ,then these damages are shown as markers on the map.
 
-#### 🔌 Hardware Integration:
+####   🔌 Hardware Integration:
 
 - YOLO runs on Pi + webcam.
 
@@ -96,7 +96,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 
 - ESP32 to other ESP32 (other car) using ESP-NOW for V2V.
 
-#### 📂 Key Files:
+####   📂 Key Files:
 
 - main.cpp:listens to GPS data, checks for road damage detection, records the GPS location, and triggers communication subsystems (V2V, V2C, and Map) to 
   send and visualize alerts.
@@ -122,7 +122,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 - IoT policies and certificates.
 
 ### 🧪 4.Testing
-#### 🧱 Unit Testing:
+####   🧱 Unit Testing:
 
 - AI detection accuracy.
 
@@ -136,7 +136,7 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 
 - markers on the map.
 
-#### 🔀 Integration Testing:
+####   🔀 Integration Testing:
 
 - AI + GPS + UART → ESP32 (Main Car) → ESP-NOW → ESP32 (Other Car)
 
@@ -144,11 +144,11 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 
 - Flask + MongoDB + map markers.
 
-#### 🧪 System Testing:
+####   🧪 System Testing:
 
 - Full end-to-end flow: detect → send → visualize.
 
-#### 🧪 Edge Case Testing:
+####   🧪 Edge Case Testing:
 
 - No GPS signal.
 
@@ -157,34 +157,34 @@ Stakeholders: Smart car users, non-smart car users ,government agencies.
 - ESP32 not responding.
 
 ### 5. 🚀 Deployment
-#### 🖥️ On Raspberry Pi:
+####   🖥️ On Raspberry Pi:
 
 - Auto-run app on boot.
 
 - Custom image using Yocto.
 
-#### 🌐 Database:
+####   🌐 Database:
 
 - MongoDB Atlas with static IP whitelisting.
 
-#### 🗺️ Web Map:
+####   🗺️ Web Map:
 
 - Flask server accessible via public static IP or EC2.
 
-#### 🔐 Security:
+####   🔐 Security:
 
 - Certificates uploaded to Pi.
 
 - Private key permissions restricted.
 
 ### 📈  6. Maintenance & Future Work
-#### 🔧 Maintenance:
+####   🔧 Maintenance:
 
 - Fix AI false positives.
 
 - Monitor MQTT message delivery.
 
-#### 🔮 Future Enhancements:
+####   🔮 Future Enhancements:
 
 - Add an image or video showing the damage with the message sent to AWS. 
 
