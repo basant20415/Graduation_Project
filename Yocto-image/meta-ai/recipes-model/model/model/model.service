@@ -1,0 +1,21 @@
+[Unit]
+Description=YOLO Model Service
+After=network.target graphical.target
+Wants=network.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/usr/bin/Model_deploy
+ExecStart=/usr/bin/python3 -u /usr/bin/Model_deploy/track.py
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+Environment=DISPLAY=:0  # Needed if using GUI components
+
+[Install]
+WantedBy=multi-user.target

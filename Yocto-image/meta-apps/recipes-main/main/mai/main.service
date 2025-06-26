@@ -1,0 +1,21 @@
+[Unit]
+Description=OSM app Handler Service
+After=network.target
+Wants=network.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/usr/bin
+ExecStart=/usr/bin/main
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+Environment=PYTHONUNBUFFERED=1
+Environment=DISPLAY=:0  
+
+[Install]
+WantedBy=multi-user.target
