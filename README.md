@@ -4,25 +4,25 @@ This repository contains all the necessary knowledge to build our graduation pro
 
 ## Software Development Life Cycle (SDLC)
 
-### 1. Requirements Analysis
+### 🔁 1. Requirements Analysis
 
 Goal: Detect road damages and send alerts to nearby cars, the cloud (government), and visualize on a map.
 
 Stakeholders: Smart car users, non-smart car users ,government agencies.
 
-#### Functional Requirements:
+#### ✅ Functional Requirements:
 
-Detect potholes, cracks, faded road markings, and other road objects using YOLOv12.
+- Detect potholes, cracks, faded road markings, and other road objects using YOLOv12.
 
-Send alerts to:
+- Send alerts to:
 
-Other vehicles (V2V via ESP-NOW).
+  - Other vehicles (V2V via ESP-NOW).
 
-AWS Cloud (V2C via MQTT over AWS IoT Core Broker).
+  - AWS Cloud (V2C via MQTT over AWS IoT Core Broker).
 
-Visualization interface (OpenStreetMap + Flask).
+  - Visualization interface (OpenStreetMap + Flask).
 
-#### Non-functional Requirements:
+#### 🛡️ Non-functional Requirements:
 
 Real-time performance.
 
@@ -30,8 +30,8 @@ Secure transmission (TLS, certificates).
 
 Low latency for alerts.
 
-### 2. System Design
-#### Architecture:
+### 2. 🧠 System Design
+#### 🏗️ Architecture:
 
 #### Modular design with subsystems:
 
@@ -43,7 +43,7 @@ V2C Communication (Raspberry Pi to AWS IoT Core via MQTT).
 
 OpenStreetMap (flask + MongoDB).
 
-#### Technology Stack:
+#### 🛠️ Technology Stack:
 
 Raspberry Pi (Python/C++).
 
@@ -55,7 +55,7 @@ MongoDB Atlas (Cloud DB).
 
 Flask + Leaflet.js for the map UI.
 
-#### Data Flow:
+#### 🔄 Data Flow:
 
 The camera detects damage → YOLO confirms → GPS adds the location.
 
@@ -69,8 +69,8 @@ Alert sent to:
 
 Map updated via Flask API.
 
-### 3. Implementation
-#### Programming Languages:
+### 3. 💻 Implementation
+#### 💬 Programming Languages:
 
 C++ (main app + MQTT + raspberrypi to esp32 ).
 
@@ -78,7 +78,7 @@ Python (Flask, AI inference).
 
 JavaScript (Leaflet.js map).
 
-#### Software Integration:
+#### 🔗 Software Integration:
 
 When the Raspberry Pi detects road damage using camera and YOLOv12,it sends alert to:
 
@@ -88,7 +88,7 @@ When the Raspberry Pi detects road damage using camera and YOLOv12,it sends aler
 
 3-mongodb atlas ,then these damages are shown as markers on the map.
 
-#### Hardware Integration:
+#### 🔌 Hardware Integration:
 
 YOLO runs on Pi + webcam.
 
@@ -96,7 +96,7 @@ Raspberrypi to ESP32 (main vehicle) using uart.
 
 ESP32 to other ESP32 (other car) using ESP-NOW for V2V.
 
-#### Key Files:
+#### 📂 Key Files:
 
 main.cpp:listens to GPS data, checks for road damage detection, records the GPS location, and triggers communication subsystems (V2V, V2C, and Map) to send and visualize alerts.
 
@@ -114,14 +114,14 @@ app.py:saves the damage on mongo db atlas then sends all the damages to map.html
 
 map.html: add the damages on the map.
 
-#### Security:
+#### 🔒 Security:
 
 TLS encryption.
 
 IoT policies and certificates.
 
-### 4. Testing
-#### Unit Testing:
+### 🧪 4.Testing
+#### 🧱 Unit Testing:
 
 AI detection accuracy.
 
@@ -135,7 +135,7 @@ mqtt transmission.
 
 markers on the map.
 
-#### Integration Testing:
+#### 🔀 Integration Testing:
 
 AI + GPS + UART → ESP32 (Main Car) → ESP-NOW → ESP32 (Other Car)
 
@@ -143,7 +143,7 @@ AI + GPS + MQTT Pipeline → AWS IoT Core → Email Notification (Gmail)
 
 Flask + MongoDB + map markers.
 
-#### System Testing:
+#### 🧪 System Testing:
 
 Full end-to-end flow: detect → send → visualize.
 
@@ -155,35 +155,35 @@ No internet → local backup.
 
 ESP32 not responding.
 
-### 5. Deployment
-#### On Raspberry Pi:
+### 5. 🚀 Deployment
+#### 🖥️ On Raspberry Pi:
 
 Auto-run app on boot.
 
 Custom image using Yocto.
 
-#### Database:
+#### 🌐 Database:
 
 MongoDB Atlas with static IP whitelisting.
 
-#### Web Map:
+#### 🗺️ Web Map:
 
 Flask server accessible via public static IP or EC2.
 
-#### Security:
+#### 🔐 Security:
 
 Certificates uploaded to Pi.
 
 Private key permissions restricted.
 
-### 6. Maintenance & Future Work
-#### Maintenance:
+### 📈  6. Maintenance & Future Work
+#### 🔧 Maintenance:
 
 Fix AI false positives.
 
 Monitor MQTT message delivery.
 
-#### Future Enhancements:
+#### 🔮 Future Enhancements:
 
 Add an image or video showing the damage with the message sent to AWS. 
 
