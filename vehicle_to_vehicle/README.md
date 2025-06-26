@@ -1,6 +1,8 @@
 # 🚗 Vehicle-to-Vehicle (V2V) Communication System
 This application enables direct communication between two vehicles using ESP32 modules and ESP-NOW protocol. It allows a car that detects road damage (via Raspberry Pi) to warn nearby vehicles in real time.
 
+![alt text](image.png)
+
 ## 📡 V2V Architecture
 ### Main Vehicle (Transmitter)
 
