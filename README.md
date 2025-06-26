@@ -194,3 +194,23 @@ using lidar and radar for different weather conditions.
 
 
 ![alt text](image.png)
+
+## Acknowledgments
+
+This project was inspired and influenced by the work of the Yocto Project community and developers. Also, it was mentored by Dr. Essam at shoubra faculty of engineering
+
+## Contributors
+This project was the graduation project of a group of 7 from Faculty of Engineering, computer department, Benha University, Class of 2025.
+
+My teammates are:
+
+Toqa Sameh
+Nermeen Ahmed
+Bassant Ehab
+Alaa Gaber
+Ali Abdelmenam
+Rawan Mohamed
+
+## Contributing
+----------------------------------------------------------------------------------------------------------------------
+Contributions to the Advanced Road safety system project are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request.
