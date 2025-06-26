@@ -1,5 +1,5 @@
 # 🛑 Emergency Stop Signal to Arduino (C++)
-This lightweight C++ application is responsible for sending a stop signal ('s') to an Arduino board when road damage is detected by the AI system.
+This lightweight C++ application is responsible for sending a stop signal ('s') to an Arduino board using UART when road damage is detected by the AI system.
 
 ## 🔧 Features:
 - Reads road damage status from ai.txt.
@@ -15,3 +15,4 @@ This lightweight C++ application is responsible for sending a stop signal ('s') 
 
 - Sends the character 's'.
 
+![alt text](image.png)
