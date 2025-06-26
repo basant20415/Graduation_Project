@@ -1,12 +1,18 @@
 # ADVANCED ROAD SAFETY SYSTEM BASED ON V2V AND V2C
-## 🔁 1. Requirements Analysis
+
+This repository contains all the necessary knowledge to build our graduation project on Embedded Linux. The project is organized into three main folders: vehicle to vehicle communication, vehicle to cloud communication, and openstreetmap.
+
+## Software Development Life Cycle (SDLC)
+
+### 🔁 1. Requirements Analysis
+
 Goal: Detect road damages and send alerts to nearby cars, the cloud (government), and visualize on a map.
 
-Stakeholders: Smart car users,Non smart car users ,government agencies.
+Stakeholders: Smart car users, non-smart car users ,government agencies.
 
-###Functional Requirements:
+#### Functional Requirements:
 
-Detect potholes/cracks/fainted paintings/any object using YOLOv12.
+Detect potholes, cracks, faded road markings, and other road objects using YOLOv12.
 
 Send alerts to:
 
@@ -16,7 +22,7 @@ AWS Cloud (V2C via MQTT over AWS IoT Core Broker).
 
 Visualization interface (OpenStreetMap + Flask).
 
-###Non-functional Requirements:
+#### Non-functional Requirements:
 
 Real-time performance.
 
@@ -24,78 +30,98 @@ Secure transmission (TLS, certificates).
 
 Low latency for alerts.
 
-##🧠 2. System Design
-Architecture:
+### 🧠 2. System Design
+#### Architecture:
 
-Modular design with subsystems:
+#### Modular design with subsystems:
 
 AI Subsystem (YOLO).
 
-V2V Communication (ESP32 via ESP-NOW).
+V2V Communication (ESP32 to other ESP32 via ESP-NOW).
 
-V2C Communication (AWS IoT Core).
+V2C Communication (Raspberry Pi to AWS IoT Core via MQTT).
 
-Flask Server (Map + MongoDB).
+OpenStreetMap (flask + MongoDB).
 
-Technology Stack:
+#### Technology Stack:
 
 Raspberry Pi (Python/C++).
 
-ESP32 (Arduino/C++).
+ESP32 (C/C++).
 
 AWS IoT Core (MQTT).
 
 MongoDB Atlas (Cloud DB).
 
-Flask + Leaflet.js for map UI.
+Flask + Leaflet.js for the map UI.
 
-Data Flow:
+#### Data Flow:
 
-Camera detects damage → AI confirms → GPS adds location.
+The camera detects damage → YOLO confirms → GPS adds the location.
 
 Alert sent to:
 
-Other vehicles (via UART).
+1- Other vehicles (via ESP-NOW).
 
-AWS (MQTT).
+2- AWS (via MQTT).
 
-Database (MongoDB).
+3- Database (MongoDB).
 
 Map updated via Flask API.
 
-##💻 3. Implementation
-Programming Languages:
+### 💻 3. Implementation
+#### Programming Languages:
 
-C++ (main app + MQTT).
+C++ (main app + MQTT + raspberrypi to esp32 ).
 
 Python (Flask, AI inference).
 
 JavaScript (Leaflet.js map).
 
-Hardware Integration:
+#### Software Integration:
+
+When the Raspberry Pi detects road damage using camera and YOLOv12,it sends alert to:
+
+1-ESP32 (main vehicle) using UART, then the main vehicle sends the alert to the other ESP32 (other vehicle) using ESP-NOW.
+
+2-aws iot core using mqtt ,then aws iot core sends the alert to government agencies (our gmail as a simulation).
+
+3-mongodb atlas ,then these damages are shown as markers on the map.
+
+#### Hardware Integration:
 
 YOLO runs on Pi + webcam.
 
-ESP32 UART code for V2V.
+Raspberrypi to ESP32 (main vehicle) using uart.
 
-Secure communication (TLS + AWS certs).
+ESP32 to other ESP32 (other car) using ESP-NOW for V2V.
 
-Key Files:
+#### Key Files:
 
-main.cpp: Reads AI + GPS + sends MQTT.
+main.cpp:listens to GPS data, checks for road damage detection, records the GPS location, and triggers communication subsystems (V2V, V2C, and Map) to send and visualize alerts.
 
-flask_server.py: Receives data + renders map.
+aws.cpp: Reads AI + GPS files then send alert to aws iot core.
 
-ESP32_rx.ino: Receives via UART.
+Esp32_To_Esp32/v2v.c: sends alert to the other vehicle using ESP-NOW.
 
-Security:
+uart.cpp:reads detected road damage from a file and sends it over UART to an ESP32 for further V2V communication.
+
+Other-Vehcile/v2v.c:receive ESP-NOW messages.
+
+request.py:gets damage location then sends it to the server via post request.
+
+app.py:saves the damage on mongo db atlas then sends all the damages to map.html file.
+
+map.html: add the damages on the map.
+
+#### Security:
 
 TLS encryption.
 
 IoT policies and certificates.
 
-##🧪 4. Testing
-Unit Testing:
+### 🧪 4. Testing
+#### Unit Testing:
 
 AI detection accuracy.
 
@@ -103,13 +129,21 @@ GPS string parsing.
 
 UART transmission.
 
-Integration Testing:
+ESP-NOW transmission.
 
-AI + GPS + MQTT pipeline.
+mqtt transmission.
+
+markers on the map.
+
+#### Integration Testing:
+
+AI + GPS + UART → ESP32 (Main Car) → ESP-NOW → ESP32 (Other Car)
+
+AI + GPS + MQTT Pipeline → AWS IoT Core → Email Notification (Gmail)
 
 Flask + MongoDB + map markers.
 
-System Testing:
+#### System Testing:
 
 Full end-to-end flow: detect → send → visualize.
 
@@ -121,42 +155,42 @@ No internet → local backup.
 
 ESP32 not responding.
 
-##🚀 5. Deployment
-On Raspberry Pi:
+### 🚀 5. Deployment
+#### On Raspberry Pi:
 
-Auto-run app on boot using systemd.
+Auto-run app on boot.
 
 Custom image using Yocto.
 
-Database:
+#### Database:
 
 MongoDB Atlas with static IP whitelisting.
 
-Web Map:
+#### Web Map:
 
 Flask server accessible via public static IP or EC2.
 
-Security:
+#### Security:
 
 Certificates uploaded to Pi.
 
 Private key permissions restricted.
 
-##📈 6. Maintenance & Future Work
-Maintenance:
+### 📈 6. Maintenance & Future Work
+#### Maintenance:
 
 Fix AI false positives.
 
 Monitor MQTT message delivery.
 
-Future Enhancements:
+#### Future Enhancements:
 
-Add SMS/email alerts.
+Add an image or video showing the damage with the message sent to AWS. 
 
-Support for RSU (V2I).
+We suggest that the government agencies have access on mongodb atlas for updating the map after maintenance. 
 
-Add data analytics dashboard.
-
-Real-time speed control based on alerts.
+using lidar and radar for different weather conditions.
 
 
+
+![alt text](image.png)
