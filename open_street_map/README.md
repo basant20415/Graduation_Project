@@ -47,5 +47,6 @@ This web application visualizes road damage reports (e.g., potholes, cracks, gar
 
 ## 🎥 helpfull youtube videos
 
-[flask](https://youtu.be/Ze_lPWFQmXI?si=46FioDt0Q-AQt8i1)
-[flask](https://youtu.be/07qgoQngK2Q?si=TSSNi-Frq_0fFoNR)
+[flask 1](https://youtu.be/Ze_lPWFQmXI?si=46FioDt0Q-AQt8i1)
+
+[flask 2](https://youtu.be/07qgoQngK2Q?si=TSSNi-Frq_0fFoNR)
