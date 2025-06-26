@@ -15,4 +15,6 @@ This lightweight C++ application is responsible for sending a stop signal ('s') 
 
 - Sends the character 's'.
 
+## 🔌 connections
+
 ![alt text](image.png)
