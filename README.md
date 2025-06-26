@@ -206,12 +206,12 @@ This project was the graduation project of a group of 7 from Faculty of Engineer
 
 My teammates are:
 
-Toqa Sameh
-Nermeen Ahmed
-Bassant Ehab
-Alaa Gaber
-Ali Abdelmenam
-Rawan Mohamed
+- [Nermeen Ahmed](https://github.com/nermeenahmed577)
+- [Toqa Sameh](https://github.com/Toqasameh)
+- [Mariam Reda](https://github.com/MariamReda25)
+- [Alaa Gaber](https://github.com/alaagaber25/)
+- [Ali Abdelmenam](https://github.com/aliabdelmonam)
+- [Rawan Mohamed](https://github.com/rawan-mohamed-fathy)
 
 ## Contributing
 
