@@ -1,6 +1,8 @@
 # 🗺️ Road Damage Visualization Web App
 This web application visualizes road damage reports (e.g., potholes, cracks, garbage) on an interactive map using Leaflet.js. It uses a Flask backend and MongoDB Atlas to receive, store, and display real-time damage reports.
 
+![alt text](image.png)
+
 ## 📂 Project Structure
 - app.py: Main Flask application that:
 
