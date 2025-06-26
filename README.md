@@ -4,7 +4,7 @@ This repository contains all the necessary knowledge to build our graduation pro
 
 ## Software Development Life Cycle (SDLC)
 
-### 🔁 1. Requirements Analysis
+### 1. Requirements Analysis
 
 Goal: Detect road damages and send alerts to nearby cars, the cloud (government), and visualize on a map.
 
@@ -30,7 +30,7 @@ Secure transmission (TLS, certificates).
 
 Low latency for alerts.
 
-### 🧠 2. System Design
+### 2. System Design
 #### Architecture:
 
 #### Modular design with subsystems:
@@ -69,7 +69,7 @@ Alert sent to:
 
 Map updated via Flask API.
 
-### 💻 3. Implementation
+### 3. Implementation
 #### Programming Languages:
 
 C++ (main app + MQTT + raspberrypi to esp32 ).
@@ -120,7 +120,7 @@ TLS encryption.
 
 IoT policies and certificates.
 
-### 🧪 4. Testing
+### 4. Testing
 #### Unit Testing:
 
 AI detection accuracy.
@@ -155,7 +155,7 @@ No internet → local backup.
 
 ESP32 not responding.
 
-### 🚀 5. Deployment
+### 5. Deployment
 #### On Raspberry Pi:
 
 Auto-run app on boot.
@@ -176,7 +176,7 @@ Certificates uploaded to Pi.
 
 Private key permissions restricted.
 
-### 📈 6. Maintenance & Future Work
+### 6. Maintenance & Future Work
 #### Maintenance:
 
 Fix AI false positives.
