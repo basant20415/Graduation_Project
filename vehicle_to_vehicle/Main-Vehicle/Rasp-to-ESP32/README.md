@@ -20,6 +20,10 @@ This application is responsible for sending road damage alerts from the Raspberr
 📤 Output:
 - Sends the damage message over UART to the ESP32 which will then broadcast it using ESP-NOW.
 
+## 🔌 connections
+
+![alt text](image.png)
+
 ## 🔗 helpfull links
 [Raspberrypi5 _uart_communication](https://www.electronicwings.com/raspberry-pi/raspberry-pi-uart-communication-using-python-and-c)
 
@@ -27,6 +31,3 @@ This application is responsible for sending road damage alerts from the Raspberr
 
 [Raspberrypi5 documentation to configure uart](https://www.raspberrypi.com/documentation/computers/configuration.html#configure-uarts)
 
-## 🔌 connections
-
-![alt text](image.png)
